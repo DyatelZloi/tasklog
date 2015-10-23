@@ -33,12 +33,12 @@
         </layout>
     </appender>
 
-    <logger name="ru.skipy">
+    <logger name="nikiforma@mail.ru">
         <level value="INFO"/>
         <appender-ref ref="application"/>
     </logger>
 
-    <logger name="org.hibernate" additivity="false">
+    <logger name="nikiforma@mail.ru" additivity="false">
         <level value="WARN"/>
         <appender-ref ref="orm"/>
     </logger>
