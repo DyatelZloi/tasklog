@@ -1,17 +1,24 @@
 package tasklog.kz.epam.task.text;
 
+import java.util.List;
+import tasklog.kz.epam.task.text.Symbol;
+
 public class Word {
 	
-	private String symbols;
+	private List <Symbol> symbols;
 
-	public Word( String symbols){
+	public Word(List <Symbol> symbols){
 		this.symbols = symbols;
+	}
+	
+	public void addSymbol(Symbol anySymbol){
+		this.symbols.add(anySymbol);
 	}
 	
 	/**
 	 * @return the symbols
 	 */
-	public String getSymbols() {
+	public List <Symbol> getSymbols() {
 		return symbols;
 	}
 
@@ -23,7 +30,7 @@ public class Word {
 	/**
 	 * @param symbols the symbols to set
 	 */
-	public void setSymbols(String symbols) {
+	public void setSymbols(List <Symbol> symbols) {
 		this.symbols = symbols;
 	}
 }

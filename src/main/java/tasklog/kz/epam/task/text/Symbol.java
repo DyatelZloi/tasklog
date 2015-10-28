@@ -2,13 +2,11 @@ package tasklog.kz.epam.task.text;
 
 public class Symbol {
 	
-	@Override
-	public String toString() {
-		return "Symbol [value=" + value + "]";
-	}
-
 	private char value;
 
+	public Symbol(){
+	}
+	
 	public Symbol(char value){
 		this.value = value;
 	}
@@ -25,5 +23,10 @@ public class Symbol {
 	 */
 	public void setValue(char value) {
 		this.value = value;
+	}
+	
+	@Override
+	public String toString() {
+		return "Symbol [value=" + value + "]";
 	}
 }

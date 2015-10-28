@@ -6,8 +6,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class Read{
-	
-	//<a> файла как одной строки
 
 	public java.util.List<String> readFile(Path filePath) { 
 		java.util.List<String> text = null;
