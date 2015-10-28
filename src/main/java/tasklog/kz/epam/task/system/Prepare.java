@@ -23,7 +23,7 @@ public class Prepare {
 	 } 
 	 
 	 //Свапвщполвапрла
-	 public static List <Symbol> findSymbols(String regex, java.util.List<String> lines){//public List <String> findAny()
+	 public static List <Symbol> findSymbols(String regex, java.util.List<String> lines){//public List <String> findAny(Pattern pattern1, List <String> lines)
 		 List <Symbol> sevedList = new ArrayList <Symbol>();
 		 for (int i = 0; i < lines.size(); i++) {
 			 String x = lines.get(i);
