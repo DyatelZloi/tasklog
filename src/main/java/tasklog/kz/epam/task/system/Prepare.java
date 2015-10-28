@@ -22,7 +22,8 @@ public class Prepare {
 		}   
 	 } 
 	 
-	 public static List <Symbol> findSymbols(String regex, java.util.List<String> lines){
+	 //Свапвщполвапрла
+	 public static List <Symbol> findSymbols(String regex, java.util.List<String> lines){//public List <String> findAny()
 		 List <Symbol> sevedList = new ArrayList <Symbol>();
 		 for (int i = 0; i < lines.size(); i++) {
 			 String x = lines.get(i);
@@ -33,7 +34,7 @@ public class Prepare {
 				 sevedList.add(new Symbol(m2.group().charAt(0)));
 			 }
 		 }
-		return sevedList;
+		return sevedList;// List <String>
 	 }
 	 
 	 public static void findSymbol(String regex, java.util.List<String> lines){
