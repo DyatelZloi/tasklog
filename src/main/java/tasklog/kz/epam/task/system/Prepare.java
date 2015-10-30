@@ -11,22 +11,22 @@ import tasklog.kz.epam.task.text.Word;
 
 public class Prepare {
 	 
-	 public static List <Symbol> findSymbols2(Pattern findPattern, String lines){
-		 List <Symbol> sevedList = new ArrayList <Symbol>();
-			 String x = lines;
-			 Pattern p2 = findPattern;
-			 Matcher m2 = p2.matcher(x);
-			 while (m2.find()) {
-				 sevedList.add(new Symbol(m2.group().charAt(0)));
-			 }
+	 public static List <Symbol> findSymbols2( String lines){
+		List <Symbol> sevedList = new ArrayList <Symbol>();
+		Pattern forSymbol = Pattern.compile("[\\S*]");
+		String x = lines;
+		Matcher m2 = forSymbol.matcher(x);
+			while (m2.find()) {
+				sevedList.add(new Symbol(m2.group().charAt(0)));
+			}
 		return sevedList;
 	 }
 	 
 	public static List <String> searchForTheLine2(Pattern findPattern, String lines){
 		List <String> returnStatment = new ArrayList <String>();
-			String x = lines;
-			Pattern p2 = findPattern;
-			Matcher m2 = p2.matcher(x);
+		String x = lines;
+		Pattern p2 = findPattern;
+		Matcher m2 = p2.matcher(x);
 			while (m2.find()) {
 				returnStatment.add(m2.group());
 			}
@@ -35,13 +35,12 @@ public class Prepare {
 	 
 	public static List <Word> findWords(Pattern findPattern, List<String> lines){
 		List<Word> returnStatment = new ArrayList<Word>();
-		Pattern forSymbol = Pattern.compile("[\\S*]");
 		Pattern forWords = Pattern.compile("(\\S*[\\s])");
 		for (int i = 0; i < lines.size(); i++) {
 			String x = lines.get(i);
 			Matcher m2 = forWords.matcher(x);
 			while (m2.find()) {
-				 returnStatment.add(new Word(findSymbols2(forSymbol, m2.group())));
+				 returnStatment.add(new Word(findSymbols2(m2.group())));
 			 }
 		}
 		return returnStatment;
