@@ -52,19 +52,7 @@ public class Prepare {
 		for (int i = 0; i < lines.size(); i++) {
 			 String x = lines.get(i);
 			 Pattern forWords = Pattern.compile("(\\S*[\\s])");
-			 Pattern forProposal = Pattern.compile(
-						"# Match a sentence ending in punctuation or EOS.\n" +
-						"[^.!?\\s]    # First char is non-punct, non-ws\n" +
-						"[^.!?]*      # Greedily consume up to punctuation.\n" +
-						"(?:          # Group for unrolling the loop.\n" +
-						"  [.!?]      # (special) inner punctuation ok if\n" +
-						"  (?!['\"]?\\s|$)  # not followed by ws or EOS.\n" +
-						"  [^.!?]*    # Greedily consume up to punctuation.\n" +
-						")*           # Zero or more (special normal*)\n" +
-						"[.!?]?       # Optional ending punctuation.\n" +
-						"['\"]?       # Optional closing quote.\n" +
-						"(?=\\s|$)", 
-						Pattern.MULTILINE | Pattern.COMMENTS);
+			 Pattern forProposal = findPattern;
 			 Matcher m2 = forProposal.matcher(x);
 			 while (m2.find()) {
 				 returnStatment.add(new Proposal(findWords(forWords, Prepare.searchForTheLine2(forWords, m2.group()))));
