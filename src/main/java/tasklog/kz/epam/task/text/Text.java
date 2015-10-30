@@ -4,19 +4,28 @@ import java.util.List;
 
 public class Text {
 	
-	private List <Proposal> anytext;
+	private List <Proposal> anyText;
 
+	@Override
+	public String toString() {
+		return "Text [anyText=" + anyText + "]";
+	}
+
+	public Text(List <Proposal> anyText){
+		this.anyText = anyText;
+	}
+	
 	/**
 	 * @return the anytext
 	 */
 	public List <Proposal> getAnytext() {
-		return anytext;
+		return anyText;
 	}
 
 	/**
 	 * @param anytext the anytext to set
 	 */
 	public void setAnytext(List <Proposal> anytext) {
-		this.anytext = anytext;
+		this.anyText = anytext;
 	}
 }
