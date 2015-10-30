@@ -27,9 +27,9 @@ public class Prepare {
 		String x = lines;
 		Pattern p2 = findPattern;
 		Matcher m2 = p2.matcher(x);
-			while (m2.find()) {
-				returnStatment.add(m2.group());
-			}
+		while (m2.find()) {
+			returnStatment.add(m2.group());
+		}
 		return returnStatment;
 	}
 	 
@@ -41,7 +41,7 @@ public class Prepare {
 			Matcher m2 = forWords.matcher(x);
 			while (m2.find()) {
 				 returnStatment.add(new Word(findSymbols2(m2.group())));
-			 }
+			}
 		}
 		return returnStatment;
 	}
