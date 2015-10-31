@@ -9,6 +9,7 @@ import tasklog.kz.epam.task.text.Symbol;
 import tasklog.kz.epam.task.text.Word;
 
 public class Prepare {
+<<<<<<< HEAD
 
 	public List <Symbol> findSymbols2(Pattern findPattern, String lines){
 		List <Symbol> sevedList = new ArrayList <Symbol>();
@@ -18,6 +19,17 @@ public class Prepare {
 		while (m2.find()) {
 			 sevedList.add(new Symbol(m2.group().charAt(0)));
 		}
+=======
+	 
+	 public static List <Symbol> findSymbols2( String lines){
+		List <Symbol> sevedList = new ArrayList <Symbol>();
+		Pattern forSymbol = Pattern.compile("[\\S*]");
+		String x = lines;
+		Matcher m2 = forSymbol.matcher(x);
+			while (m2.find()) {
+				sevedList.add(new Symbol(m2.group().charAt(0)));
+			}
+>>>>>>> origin/master
 		return sevedList;
 	 }
 	 
@@ -34,14 +46,13 @@ public class Prepare {
 	
 	public List <Word> findWords(Pattern findPattern, List<String> lines){
 		List<Word> returnStatment = new ArrayList<Word>();
-		Pattern forSymbol = Pattern.compile("[\\S*]");
 		Pattern forWords = Pattern.compile("(\\S*[\\s])");
 		for (int i = 0; i < lines.size(); i++) {
 			String x = lines.get(i);
 			Matcher m2 = forWords.matcher(x);
 			while (m2.find()) {
-				 returnStatment.add(new Word(findSymbols2(forSymbol, m2.group())));
-			 }
+				 returnStatment.add(new Word(findSymbols2(m2.group())));
+			}
 		}
 		return returnStatment;
 	}
@@ -64,6 +75,11 @@ public class Prepare {
 		Pattern.MULTILINE | Pattern.COMMENTS);
 		for (int i = 0; i < lines.size(); i++) {
 			 String x = lines.get(i);
+<<<<<<< HEAD
+=======
+			 Pattern forWords = Pattern.compile("(\\S*[\\s])");
+			 Pattern forProposal = findPattern;
+>>>>>>> origin/master
 			 Matcher m2 = forProposal.matcher(x);
 			 while (m2.find()) {
 				returnStatment.add(new Proposal(findWords(forWords, Prepare.searchForTheLine2(forWords, m2.group()))));
@@ -71,4 +87,14 @@ public class Prepare {
 		 }
 		return returnStatment;
 	}
+<<<<<<< HEAD
+=======
+	
+	public static void printText(Read reading, Path path, List<String> lines){
+		for (int i = 0; i < lines.size(); i++) {
+			String x = lines.get(i);
+			System.out.println(x);
+		}
+	}
+>>>>>>> origin/master
 }
