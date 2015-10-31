@@ -11,6 +11,10 @@ public class Symbol {
 		this.value = value;
 	}
 	
+	public Symbol(String group) {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * @return the value
 	 */

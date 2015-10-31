@@ -1,6 +1,7 @@
 package tasklog.kz.epam.task.text;
 
 import java.util.List;
+
 import tasklog.kz.epam.task.text.Symbol;
 
 public class Word {
@@ -11,6 +12,10 @@ public class Word {
 		this.symbols = symbols;
 	}
 	
+	public Word(String group) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void addSymbol(Symbol anySymbol){
 		this.symbols.add(anySymbol);
 	}

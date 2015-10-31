@@ -4,10 +4,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.logging.Logger;
-import java.util.regex.Pattern;
 import org.apache.log4j.xml.DOMConfigurator;
 import tasklog.kz.epam.task.system.Prepare;
-import tasklog.kz.epam.task.system.Read;
+import tasklog.kz.epam.task.system.read.ReadFile;
+import tasklog.kz.epam.task.system.read.RealAllLines;
+import tasklog.kz.epam.task.system.write.WriteFile;
+import tasklog.kz.epam.task.system.write.WriteToTheConsole;
 import tasklog.kz.epam.task.text.Text;
 
 
@@ -17,23 +19,17 @@ public class App {
 	
 	public static void main(String[] args)  {
 		DOMConfigurator.configure("./log4j.xml");
-		Read reading = new Read();
+		//ввод, завязан на интерфейсе
+		ReadFile reading = new ReadFile();
+		reading.setStrategy(new RealAllLines());
 		Path path = Paths.get("./test.txt");
+		reading.readFile(path);
+		Prepare prepare = new Prepare();
 		List<String> textFile = reading.readFile(path);
-		Pattern forProposal = Pattern.compile(
-			"# Match a sentence ending in punctuation or EOS.\n" +
-			"[^.!?\\s]    # First char is non-punct, non-ws\n" +
-			"[^.!?]*      # Greedily consume up to punctuation.\n" +
-			"(?:          # Group for unrolling the loop.\n" +
-			"  [.!?]      # (special) inner punctuation ok if\n" +
-			"  (?!['\"]?\\s|$)  # not followed by ws or EOS.\n" +
-			"  [^.!?]*    # Greedily consume up to punctuation.\n" +
-			")*           # Zero or more (special normal*)\n" +
-			"[.!?]?       # Optional ending punctuation.\n" +
-			"['\"]?       # Optional closing quote.\n" +
-			"(?=\\s|$)", 
-			Pattern.MULTILINE | Pattern.COMMENTS);
-		Text text = new Text(Prepare.findProposal(textFile, forProposal));
-		System.out.println(text.toString());
+		Text text = new Text(prepare.findProposal(textFile));
+		//вывод, завязан на интерфейсе
+		WriteFile write = new WriteFile();
+		write.setStrategy(new WriteToTheConsole());
+		write.readFile(text.toString());
 	}
 }

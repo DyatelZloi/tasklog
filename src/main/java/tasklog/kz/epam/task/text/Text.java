@@ -15,6 +15,10 @@ public class Text {
 		this.anyText = anyText;
 	}
 	
+	public Text(String group) {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * @return the anytext
 	 */

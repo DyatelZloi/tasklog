@@ -1,6 +1,7 @@
 package tasklog.kz.epam.task.text;
 
 import java.util.List;
+
 import tasklog.kz.epam.task.text.Word;
 
 public class Proposal {
@@ -19,6 +20,10 @@ public class Proposal {
 		this.words = words;
 	}
 	
+	public Proposal(String group) {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * @return the words
 	 */
