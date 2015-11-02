@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import tasklog.kz.epam.task.text.Proposal;
+import tasklog.kz.epam.task.text.SimpleSentence;
 import tasklog.kz.epam.task.text.Symbol;
 import tasklog.kz.epam.task.text.Text;
 import tasklog.kz.epam.task.text.Unknown;
@@ -28,7 +28,7 @@ public class Creating implements Create {
 					returnList.add(new Symbol(matcher.group()));
 					break;
 				case "Proposal":
-					returnList.add(new Proposal(matcher.group()));
+					returnList.add(new SimpleSentence(matcher.group()));
 					break;
 				case "Text":
 					returnList.add(new Text(matcher.group()));
