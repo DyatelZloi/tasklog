@@ -1,18 +1,19 @@
 package tasklog.kz.epam.task.text;
 
+import java.util.Iterator;
 import java.util.List;
 
-public class Text {
+public class Text implements Iterable<SimpleSentence> {
 	
-	private List <SimpleSentence> anyText;
+	private List <SimpleSentence> listSimpleSentence;
 
 	@Override
 	public String toString() {
-		return "Text [anyText=" + anyText + "]";
+		return "Text [anyText=" + listSimpleSentence + "]";
 	}
 
 	public Text(List <SimpleSentence> anyText){
-		this.anyText = anyText;
+		this.listSimpleSentence = anyText;
 	}
 	
 	public Text(String group) {
@@ -23,13 +24,23 @@ public class Text {
 	 * @return the anytext
 	 */
 	public List <SimpleSentence> getAnytext() {
-		return anyText;
+		return listSimpleSentence;
 	}
 
 	/**
 	 * @param anytext the anytext to set
 	 */
 	public void setAnytext(List <SimpleSentence> anytext) {
-		this.anyText = anytext;
+		this.listSimpleSentence = anytext;
+	}
+	
+	public void add(SimpleSentence arg0){
+		this.listSimpleSentence.add(arg0);
+	}
+
+
+	@Override
+	public Iterator<SimpleSentence> iterator() {
+		return listSimpleSentence.iterator();
 	}
 }

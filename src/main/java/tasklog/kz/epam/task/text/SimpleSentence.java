@@ -1,10 +1,9 @@
 package tasklog.kz.epam.task.text;
 
+import java.util.Iterator;
 import java.util.List;
 
-import tasklog.kz.epam.task.text.Word;
-
-public class SimpleSentence {
+public class SimpleSentence implements Iterable <Word> {
 	
 	private List<Word> words;
 	private boolean theInterrogativeSentence;
@@ -78,5 +77,11 @@ public class SimpleSentence {
 	 */
 	public void setDeclarativeSentence(boolean declarativeSentence) {
 		this.declarativeSentence = declarativeSentence;
+	}
+
+	@Override
+	public Iterator<Word> iterator() {
+		// TODO Auto-generated method stub
+		return words.iterator();
 	}
 }
