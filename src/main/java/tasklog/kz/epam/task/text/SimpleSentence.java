@@ -85,10 +85,10 @@ public class SimpleSentence implements Iterable <Word> {
 		return words.iterator();
 	}
 	
-	public String SourceString(){
+	public String sourceString(){
 		StringBuilder string = new StringBuilder();
 		for (Word word : words)
-		string.append(word.SourceString()).append(" ");
+		string.append(word.sourceString()).append(" ");
 		String returnString = new String(string);
 		return returnString;
 	}

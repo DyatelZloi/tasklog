@@ -81,10 +81,10 @@ public class Word implements Iterable <Symbol> {
 		return symbols.iterator();
 	}
 	
-	public String SourceString(){
+	public String sourceString(){
 		StringBuilder string = new StringBuilder();
 		for (Symbol symbol : symbols)
-		string.append(symbol.SourceString());
+		string.append(symbol.sourceString());
 		String returnString = new String(string);
 		return returnString;
 	}

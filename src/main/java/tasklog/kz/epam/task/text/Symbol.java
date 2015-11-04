@@ -56,7 +56,7 @@ public class Symbol {
 		return "Symbol [value=" + value + "]";
 	}
 	
-	public char SourceString(){
+	public char sourceString(){
 		return value;
 	}
 }

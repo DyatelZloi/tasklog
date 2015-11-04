@@ -44,10 +44,10 @@ public class Text implements Iterable<SimpleSentence> {
 		return listSimpleSentence.iterator();
 	}
 	
-	public String SourceString(){
+	public String sourceString(){
 		StringBuilder string = new StringBuilder();
 		for (SimpleSentence simpleSentence : listSimpleSentence)
-		string.append(simpleSentence.SourceString()).append(".");
+		string.append(simpleSentence.sourceString()).append(".");
 		String returnString = new String(string);
 		return returnString;
 	}
