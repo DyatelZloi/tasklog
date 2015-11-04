@@ -80,4 +80,12 @@ public class Word implements Iterable <Symbol> {
 		// TODO Auto-generated method stub
 		return symbols.iterator();
 	}
+	
+	public String SourceString(){
+		StringBuilder string = new StringBuilder();
+		for (Symbol symbol : symbols)
+		string.append(symbol.SourceString());
+		String returnString = new String(string);
+		return returnString;
+	}
 }

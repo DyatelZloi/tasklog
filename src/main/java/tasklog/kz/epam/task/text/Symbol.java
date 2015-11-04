@@ -55,4 +55,8 @@ public class Symbol {
 	public String toString() {
 		return "Symbol [value=" + value + "]";
 	}
+	
+	public char SourceString(){
+		return value;
+	}
 }

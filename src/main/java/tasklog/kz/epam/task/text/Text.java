@@ -43,4 +43,12 @@ public class Text implements Iterable<SimpleSentence> {
 	public Iterator<SimpleSentence> iterator() {
 		return listSimpleSentence.iterator();
 	}
+	
+	public String SourceString(){
+		StringBuilder string = new StringBuilder();
+		for (SimpleSentence simpleSentence : listSimpleSentence)
+		string.append(simpleSentence.SourceString()).append(".");
+		String returnString = new String(string);
+		return returnString;
+	}
 }
