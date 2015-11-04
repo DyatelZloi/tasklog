@@ -11,10 +11,10 @@ import java.util.regex.Pattern;
 import org.apache.log4j.xml.DOMConfigurator;
 
 import tasklog.kz.epam.task.system.Prepare;
-import tasklog.kz.epam.task.system.read.ReadFile;
-import tasklog.kz.epam.task.system.read.RealAllLines;
-import tasklog.kz.epam.task.system.write.WriteFile;
-import tasklog.kz.epam.task.system.write.WriteToTheConsole;
+import tasklog.kz.epam.task.system.read.Read;
+import tasklog.kz.epam.task.system.read.AllLinesReader;
+import tasklog.kz.epam.task.system.write.FileRecorder;
+import tasklog.kz.epam.task.system.write.ConsoleRecorder;
 import tasklog.kz.epam.task.text.SimpleSentence;
 import tasklog.kz.epam.task.text.Symbol;
 import tasklog.kz.epam.task.text.Text;
@@ -26,26 +26,34 @@ public class App {
 	public static final Logger LOG=Logger.getLogger(App.class.toString());
 	
 	public static void main(String[] args)  {
+		List<Word> palindrome = new ArrayList<Word>();
 		DOMConfigurator.configure("./log4j.xml");
 		//ввод, завязан на интерфейсе
-		ReadFile reading = new ReadFile();
-		reading.setStrategy(new RealAllLines());
+		Read reading = new Read();
+		reading.setStrategy(new AllLinesReader());
 		Path path = Paths.get("./test.txt");
 		reading.readFile(path);
 		Prepare prepare = new Prepare();
 		List<String> textFile = reading.readFile(path);
 		Text text = new Text(prepare.findProposal(textFile));
 		//вывод, завязан на интерфейсе
-		WriteFile write = new WriteFile();
-		write.setStrategy(new WriteToTheConsole());
+		FileRecorder write = new FileRecorder();
+		write.setStrategy(new ConsoleRecorder());
 		write.readFile(text.toString());
 		//Vivod
 		//Нужно переопределять equals и hashcode
 		Pattern forSymbol = Pattern.compile("[\\S*]");
 		Word word = new Word(findSymbols2(forSymbol,"лепс спел"));
 		System.out.println(word.palindrome());
-		for (SimpleSentence s : text){
-			System.out.println(s);
+		for (SimpleSentence simpleSentence : text){
+			for (Word words : simpleSentence){
+				if (words.palindrome()){
+					palindrome.add(words);
+					System.out.println(palindrome.toString());
+				} else {
+					palindrome.clear();
+				}
+			}
 		}
 	}
 

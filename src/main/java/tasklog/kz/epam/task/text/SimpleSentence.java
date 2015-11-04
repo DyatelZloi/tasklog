@@ -84,4 +84,6 @@ public class SimpleSentence implements Iterable <Word> {
 		// TODO Auto-generated method stub
 		return words.iterator();
 	}
+	
+	
 }
