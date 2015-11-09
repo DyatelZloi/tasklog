@@ -1,5 +1,6 @@
 package tasklog.kz.epam.task.text;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -50,5 +51,24 @@ public class Text implements Iterable<SimpleSentence> {
 		string.append(simpleSentence.sourceString()).append(".");
 		String returnString = new String(string);
 		return returnString;
+	}
+	
+	public void palindrome(){
+		List<Word> palindrome = new ArrayList();
+		List <Word> palindrome2 = new ArrayList();
+		for (SimpleSentence simpleSentence : this.listSimpleSentence){
+			for (Word words : simpleSentence){
+				if (words.palindrome()){
+					palindrome.add(words);
+				} else {
+					if (palindrome.size() >= palindrome2.size()){
+						palindrome2.clear();
+						palindrome2.addAll(palindrome);
+					}
+					palindrome.clear();
+				}
+			}
+		}
+		System.out.println(palindrome2);
 	}
 }

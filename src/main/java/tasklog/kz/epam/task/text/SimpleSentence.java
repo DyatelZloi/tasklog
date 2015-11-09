@@ -23,6 +23,10 @@ public class SimpleSentence implements Iterable <Word> {
 		// TODO Auto-generated constructor stub
 	}
 
+	public SimpleSentence() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	/**
 	 * @return the words
 	 */
@@ -91,5 +95,30 @@ public class SimpleSentence implements Iterable <Word> {
 		string.append(word.sourceString()).append(" ");
 		String returnString = new String(string);
 		return returnString;
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((words == null) ? 0 : words.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SimpleSentence other = (SimpleSentence) obj;
+		if (words == null) {
+			if (other.words != null)
+				return false;
+		} else if (!words.equals(other.words))
+			return false;
+		return true;
 	}
 }

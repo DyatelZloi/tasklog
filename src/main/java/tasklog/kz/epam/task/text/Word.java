@@ -6,7 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import tasklog.kz.epam.task.sorting.SortByIndex;
-import tasklog.kz.epam.task.text.Symbol;
 
 public class Word implements Iterable <Symbol> {
 	
@@ -45,6 +44,10 @@ public class Word implements Iterable <Symbol> {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Word() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void addSymbol(Symbol anySymbol){
 		this.symbols.add(anySymbol);
 	}
@@ -69,7 +72,7 @@ public class Word implements Iterable <Symbol> {
 	}
 	
 	public boolean palindrome(){
-		ArrayList listWords = new ArrayList(this.symbols);
+		List listWords = new ArrayList(this.symbols);
 		Word palindrome = new Word(listWords);
 		Collections.sort(palindrome.getSymbols(), new SortByIndex());
 		return this.equals(palindrome);
@@ -83,8 +86,9 @@ public class Word implements Iterable <Symbol> {
 	
 	public String sourceString(){
 		StringBuilder string = new StringBuilder();
-		for (Symbol symbol : symbols)
-		string.append(symbol.sourceString());
+		for (Symbol symbol : symbols){
+			string.append(symbol.sourceString());
+		}
 		String returnString = new String(string);
 		return returnString;
 	}
